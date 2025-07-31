@@ -21,7 +21,8 @@ import fs from "fs"
 
                 })
                 //file has been uploaded successfully
-                console.log(`File uploaded successfully to Cloudinary: ${localFilePath}`, response.url);
+               // console.log(`File uploaded successfully to Cloudinary: ${localFilePath}`, response.url);
+               fs.unlinkSync(localFilePath); // delete the file after upload
                     return response
             } catch (error) {
                 fs.unlinkSync(localFilePath); // delete the file if upload fails
